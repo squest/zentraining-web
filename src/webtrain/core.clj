@@ -23,9 +23,9 @@
   [& args]
   (let [[a] args]
     (condp = a
-      "prod" (com/start (system :production))
       "dev" (com/start (system :development))
-      "test" (com/start (system :test)))))
+      "test" (com/start (system :test))
+      :else (com/start (system :production)))))
 
 
 

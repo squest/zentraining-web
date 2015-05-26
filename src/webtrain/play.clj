@@ -1,5 +1,6 @@
 (ns webtrain.play
-  (:require [defun :refer [defun fun letfun]]))
+  (:require
+   [defun :refer [defun fun letfun]]))
 
 (defn sum-sieve
   [^long lim]
@@ -19,13 +20,11 @@
             (recur (+ i 2) (+ i res)))
           (recur (+ i 2) res))))))
 
-(defun
-  fibo-lim
+(defun fibo-lim
   ([lim] (recur 1 0 1 lim))
   ([a b i lim] (if (> a lim) i (recur (+' a b) a (+ i 1) lim))))
 
-(defun
-  expt
+(defun expt
   ([a 0] 1)
   ([a 1] a)
   ([a m] (let [parts (expt a (quot m 2))]
@@ -39,8 +38,7 @@
   [a b ^long i lim]
   (if (> a lim) i (recur (+' a b) a (+ 1 i) lim)))
 
-(defun
-  fibo
+(defun fibo
   ([i] (recur 1 0 i []))
   ([a b 0 res] res)
   ([a b i res] (recur (+' a b) a (- i 1) (conj res a))))
